@@ -1,0 +1,14 @@
+- route:
+    id: route-1743
+    from:
+      id: from-2807
+      uri: timer:template
+      parameters:
+        delay: "1"
+        fixedRate: true
+        period: "1"
+        repeatCount: "5"
+      steps:
+        - log:
+            id: log-1811
+            message: Hello world

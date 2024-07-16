@@ -1,0 +1,30 @@
+# camel-k: language=yaml
+
+# Write your routes here, for example:
+- route:
+    id: route-1263
+    from:
+      id: from-1900
+      uri: netty-http:http://0.0.0.0:8081/greeting
+      parameters: {}
+      steps:
+        - log:
+            id: log-2128
+            message: ${body}
+        - setBody:
+            id: setBody-4196
+            expression:
+              simple:
+                expression: PONG
+                resultType: java.lang.String
+- route:
+    id: route-7386
+    from:
+      id: from-1358
+      uri: timer:template
+      parameters:
+        period: "1000"
+      steps:
+        - log:
+            id: log-4185
+            message: template message
