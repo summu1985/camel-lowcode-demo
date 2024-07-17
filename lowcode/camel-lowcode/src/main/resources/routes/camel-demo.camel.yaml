@@ -1,0 +1,57 @@
+# camel-k: language=yaml
+
+# Write your routes here, for example:
+- route:
+    id: route-2476
+    from:
+      id: from-4147
+      uri: jetty:http://0.0.0.0:8081/fetch
+      parameters:
+        httpMethodRestrict: POST
+      steps:
+        - log:
+            id: log-3522
+            message: template message
+        - setHeader:
+            id: setHeader-1708
+            expression:
+              jq:
+                expression: .type
+            name: choice
+        - choice:
+            id: choice-4799
+            otherwise:
+              id: otherwise-2754
+              steps:
+                - log:
+                    id: log-6979
+                    message: ${body}
+            when:
+              - id: when-3693
+                steps:
+                  - to:
+                      id: to-2231
+                      uri: https://random-data-api.com/api/v2/users
+                      parameters:
+                        bridgeEndpoint: true
+                        httpMethod: GET
+                  - log:
+                      id: log-1030
+                      message: ${body}
+                expression:
+                  simple:
+                    expression: ${header.choice} == "user"
+              - id: when-2196
+                steps:
+                  - to:
+                      id: to-5140
+                      uri: https://jsonplaceholder.typicode.com/todos
+                      parameters:
+                        bridgeEndpoint: true
+                        httpMethod: GET
+                  - log:
+                      id: log-1598
+                      message: ${body}
+                expression:
+                  simple:
+                    expression: ${header.choice} == "todo"
