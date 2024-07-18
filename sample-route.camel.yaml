@@ -1,0 +1,23 @@
+# camel-k: language=yaml
+
+# Write your routes here, for example:
+- route:
+    id: route-1319
+    from:
+      id: from-8630
+      uri: jetty:http://0.0.0.0/fetch
+      parameters:
+        httpMethodRestrict: GET
+      steps:
+        - setBody:
+            id: setBody-2585
+            expression:
+              constant:
+                expression: |-
+                  {
+                  "status":"success"
+                  }
+                trim: true
+        - log:
+            id: log-3630
+            message: ${body}

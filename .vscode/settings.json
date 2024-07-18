@@ -1,6 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "/Users/sumit/Library/Application Support/Code/User/globalStorage/redhat.vscode-camelk/java-dependencies/*.jar"
     ]
 }
