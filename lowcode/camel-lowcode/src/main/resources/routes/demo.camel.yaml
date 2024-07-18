@@ -1,11 +1,20 @@
 - route:
     id: route-1743
     from:
-      id: from-3885
-      uri: timer:template
+      id: from-4023
+      uri: jetty:http://0.0.0.0:8080/fetch
       parameters:
-        repeatCount: "5"
+        httpMethodRestrict: GET
       steps:
+        - setBody:
+            id: setBody-2117
+            expression:
+              constant:
+                expression: |-
+                  {
+                  "status":"success"
+                  }
+                trim: true
         - log:
             id: log-1811
-            message: Hello world
+            message: ${body}
