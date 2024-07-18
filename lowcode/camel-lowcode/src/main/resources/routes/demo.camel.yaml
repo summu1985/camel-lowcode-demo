@@ -4,8 +4,8 @@
       id: from-2344
       uri: timer:template
       parameters:
+        fixedRate: true
         period: "1000"
-        repeatCount: "10"
       steps:
         - setBody:
             id: setBody-1438
