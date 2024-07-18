@@ -1,13 +1,14 @@
 - route:
-    id: route-1743
+    id: route-6973
     from:
-      id: from-4023
-      uri: jetty:http://0.0.0.0/fetch
+      id: from-2344
+      uri: timer:template
       parameters:
-        httpMethodRestrict: GET
+        period: "1000"
+        repeatCount: "10"
       steps:
         - setBody:
-            id: setBody-2117
+            id: setBody-1438
             expression:
               constant:
                 expression: |-
@@ -16,5 +17,5 @@
                   }
                 trim: true
         - log:
-            id: log-1811
-            message: ${body}
+            id: log-1796
+            message: template message
