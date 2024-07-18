@@ -2,7 +2,7 @@
     id: route-1743
     from:
       id: from-4023
-      uri: jetty:http://0.0.0.0:8080/fetch
+      uri: jetty:http://0.0.0.0:8081/fetch
       parameters:
         httpMethodRestrict: GET
       steps:
